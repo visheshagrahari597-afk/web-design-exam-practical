@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SpendWise - a simple expense tracker with budgets, charts and dark mode.">
+  <meta name="theme-color" content="#10b981">
+  <title>SpendWise - Expense Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">💸 Spend<span>Wise</span></div>
+    <div class="nav-right">
+      <select id="monthFilter" aria-label="Filter by month"></select>
+      <button id="themeToggle" class="icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="hero-label" id="periodLabel">Total Balance</p>
+    <h1 id="balance">₹0.00</h1>
+    <div class="summary">
+      <div class="card"><span>Income</span><strong id="income">₹0.00</strong></div>
+      <div class="card"><span>Expenses</span><strong id="expense">₹0.00</strong></div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="col">
+      <section class="panel">
+        <h2 id="formTitle">Add Transaction</h2>
+        <form id="form">
+          <label>Description
+            <input type="text" id="text" placeholder="e.g. Pizza night" maxlength="60" required>
+          </label>
+          <label>Amount (₹)
+            <input type="number" id="amount" placeholder="0.00" min="0.01" step="0.01" required>
+          </label>
+          <div class="toggle">
+            <input type="radio" name="type" id="typeExpense" value="expense" checked>
+            <label for="typeExpense">Expense</label>
+            <input type="radio" name="type" id="typeIncome" value="income">
+            <label for="typeIncome">Income</label>
+          </div>
+          <label>Category
+            <select id="category"></select>
+          </label>
+          <label>Date
+            <input type="date" id="date" required>
+          </label>
+          <div class="btn-row">
+            <button type="submit" class="btn" id="submitBtn">+ Add</button>
+            <button type="button" class="btn secondary" id="cancelEdit" hidden>Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Monthly Budget</h2>
+        <div class="budget-set">
+          <input type="number" id="budgetInput" placeholder="Set budget (₹)" min="0" step="100">
+          <button class="btn small" id="saveBudget">Save</button>
+        </div>
+        <div id="budgetBox"></div>
+      </section>
+    </div>
+
+    <div class="col">
+      <section class="panel">
+        <h2>Spending Breakdown</h2>
+        <div id="chart" class="chart-wrap"></div>
+      </section>
+
+      <section class="panel">
+        <div class="list-head">
+          <h2>History</h2>
+          <select id="typeFilter" aria-label="Filter by type">
+            <option value="all">All</option>
+            <option value="income">Income</option>
+            <option value="expense">Expenses</option>
+          </select>
+        </div>
+        <ul id="list" class="list"></ul>
+        <button id="clearAll" class="btn ghost">Clear all data</button>
+      </section>
+    </div>
+  </main>
+
+  <footer>SpendWise · your data stays in your browser</footer>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
