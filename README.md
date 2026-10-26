@@ -1,19 +1,25 @@
 # SpendWise – Expense Tracker
 
-A responsive expense tracker built with plain HTML, CSS and JavaScript (no frameworks, no build step).
+A multi-page, responsive expense tracker built with plain HTML, CSS and JavaScript (no frameworks, no build step).
+
+## Pages
+| Page | What it does |
+|------|--------------|
+| **Dashboard** (`index.html`) | Balance, income, expenses, savings rate, spending doughnut, budget progress, recent transactions |
+| **Transactions** (`transactions.html`) | Add / edit / delete, search, filter by type & category, sort, export CSV |
+| **Budgets** (`budgets.html`) | Overall monthly budget plus a limit per category, with progress bars (amber at 80%, red when exceeded) |
+| **Reports** (`reports.html`) | 6-month income vs expenses chart, category breakdown, top expenses, daily average |
+| **Settings** (`settings.html`) | Your name, currency, JSON backup / restore, sample data, delete all data |
 
 ## Features
-- Add, edit and delete income / expense transactions
-- Balance, income and expense summary
-- Filter by month and by type (income / expense)
-- Doughnut chart of spending by category (pure CSS `conic-gradient`)
-- Monthly budget with progress bar (turns amber at 80%, red when exceeded)
-- Dark mode (remembers your choice, follows system theme by default)
+- Month picker in the navbar filters every page
+- Dark mode (remembers your choice, follows the system theme by default)
 - Data saved in the browser with `localStorage`
-- Fully responsive, works offline after first load
+- Fully responsive (phone, tablet, desktop)
+- Charts built with pure CSS – no libraries
 
 ## Run locally
-Just open `index.html` in a browser. Or serve the folder:
+Open `index.html` in a browser, or serve the folder:
 
 ```bash
 python -m http.server 5173
@@ -21,23 +27,23 @@ python -m http.server 5173
 
 ## Deploy (free)
 
-**Netlify (easiest)** – go to https://app.netlify.com/drop and drag the `spendwise` folder onto the page. You get a live link in seconds.
+**Netlify (easiest)** – go to https://app.netlify.com/drop and drag the project folder onto the page.
 
 **GitHub Pages**
-1. Create a new repository and upload these files (`index.html`, `style.css`, `script.js`, `README.md`).
-2. Repo → Settings → Pages → Source: `Deploy from a branch` → Branch: `main` / `(root)` → Save.
+1. Push this folder to a GitHub repository.
+2. Repo → Settings → Pages → Source: `Deploy from a branch` → `main` / `(root)` → Save.
 3. Your site will be at `https://<your-username>.github.io/<repo-name>/`.
 
-**Vercel** – import the GitHub repo at https://vercel.com/new and click Deploy (no settings needed).
+**Vercel** – import the GitHub repo at https://vercel.com/new and click Deploy.
 
 ## Files
 | File | Purpose |
 |------|---------|
-| `index.html` | Page structure |
-| `style.css` | Theme (CSS variables), layout, animations, dark mode |
-| `script.js` | State, rendering, add/edit/delete, budget, filters, localStorage |
+| `common.js` | Shared store (localStorage), helpers, navbar, theme, month picker |
+| `dashboard.js`, `transactions.js`, `budgets.js`, `reports.js`, `settings.js` | One script per page |
+| `style.css` | Theme (CSS variables), layout, charts, dark mode, responsive rules |
 
 ## Customising
-- Currency: change `CURRENCY` at the top of `script.js` (and the "Amount (₹)" label in `index.html`).
-- Categories and colours: edit the `CATEGORIES` object in `script.js`.
-- Theme colours: edit the variables at the top of `style.css`.
+- Currency and name: Settings page.
+- Categories and colours: `CATEGORIES` object at the top of `common.js`.
+- Theme colours: variables at the top of `style.css`.

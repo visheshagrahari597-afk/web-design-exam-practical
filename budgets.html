@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10b981">
+  <title>Budgets - SpendWise</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="budgets.html">
+  <section class="hero slim">
+    <h1>Budgets</h1>
+    <p id="budgetPeriod">Stay in control of your spending.</p>
+  </section>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Overall Monthly Budget</h2>
+      <div class="budget-set">
+        <input type="number" id="budgetInput" placeholder="Set monthly budget" min="0" step="100">
+        <button class="btn small" id="saveBudget">Save</button>
+      </div>
+      <div id="budgetBox"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Category Limits</h2>
+      <p class="hint">Set a limit for each category. Leave empty for no limit.</p>
+      <div id="catGrid" class="cat-grid"></div>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="budgets.js"></script>
+</body>
+</html>

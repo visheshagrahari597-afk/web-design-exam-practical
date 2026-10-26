@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10b981">
+  <title>Transactions - SpendWise</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="transactions.html">
+  <section class="hero slim">
+    <h1>Transactions</h1>
+    <p>Add, edit, search and export everything you spend and earn.</p>
+  </section>
+
+  <main class="container two-col wide-right">
+    <section class="panel">
+      <h2 id="formTitle">Add Transaction</h2>
+      <form id="form">
+        <label>Description
+          <input type="text" id="text" placeholder="e.g. Pizza night" maxlength="60" required>
+        </label>
+        <label><span>Amount (<span class="cur">₹</span>)</span>
+          <input type="number" id="amount" placeholder="0.00" min="0.01" step="0.01" required>
+        </label>
+        <div class="toggle">
+          <input type="radio" name="type" id="typeExpense" value="expense" checked>
+          <label for="typeExpense">Expense</label>
+          <input type="radio" name="type" id="typeIncome" value="income">
+          <label for="typeIncome">Income</label>
+        </div>
+        <label>Category
+          <select id="category"></select>
+        </label>
+        <label>Date
+          <input type="date" id="date" required>
+        </label>
+        <div class="btn-row">
+          <button type="submit" class="btn" id="submitBtn">+ Add</button>
+          <button type="button" class="btn secondary" id="cancelEdit" hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="list-head">
+        <h2>History</h2>
+        <button class="btn small secondary" id="exportCsv">⬇ Export CSV</button>
+      </div>
+      <div class="filters">
+        <input type="search" id="search" placeholder="🔍 Search description...">
+        <select id="typeFilter" aria-label="Type">
+          <option value="all">All types</option>
+          <option value="income">Income</option>
+          <option value="expense">Expenses</option>
+        </select>
+        <select id="catFilter" aria-label="Category"></select>
+        <select id="sort" aria-label="Sort">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+          <option value="high">Highest amount</option>
+          <option value="low">Lowest amount</option>
+        </select>
+      </div>
+      <p class="result-info" id="resultInfo"></p>
+      <ul id="list" class="list tall"></ul>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="transactions.js"></script>
+</body>
+</html>

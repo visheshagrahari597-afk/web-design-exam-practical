@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10b981">
+  <title>Reports - SpendWise</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="reports.html">
+  <section class="hero slim">
+    <h1>Reports</h1>
+    <p id="reportPeriod">See where your money goes.</p>
+  </section>
+
+  <main class="container">
+    <section class="stats" id="stats"></section>
+
+    <section class="panel">
+      <h2>Income vs Expenses · last 6 months</h2>
+      <div id="bars"></div>
+    </section>
+
+    <div class="two-col flush">
+      <section class="panel">
+        <h2>By Category</h2>
+        <div id="chart"></div>
+      </section>
+      <section class="panel">
+        <h2>Biggest Expenses</h2>
+        <ul id="top" class="list"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="reports.js"></script>
+</body>
+</html>

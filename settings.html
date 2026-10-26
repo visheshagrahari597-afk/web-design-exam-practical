@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10b981">
+  <title>Settings - SpendWise</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="settings.html" data-month="off">
+  <section class="hero slim">
+    <h1>Settings</h1>
+    <p>Make SpendWise yours and manage your data.</p>
+  </section>
+
+  <main class="container two-col">
+    <section class="panel">
+      <h2>Profile</h2>
+      <form id="profileForm">
+        <label>Your name
+          <input type="text" id="name" placeholder="e.g. Garv" maxlength="30">
+        </label>
+        <label>Currency
+          <select id="currency"></select>
+        </label>
+        <button type="submit" class="btn">Save settings</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Your Data</h2>
+      <p class="hint">Everything is stored only in this browser. Back it up regularly.</p>
+      <div class="stack">
+        <button class="btn secondary" id="exportJson">⬇ Download backup (JSON)</button>
+        <button class="btn secondary" id="importBtn">⬆ Restore from backup</button>
+        <input type="file" id="importFile" accept=".json,application/json" hidden>
+        <button class="btn secondary" id="sample">✨ Load sample data</button>
+        <button class="btn ghost" id="clearAll">Delete all data</button>
+      </div>
+    </section>
+
+    <section class="panel wide">
+      <h2>About</h2>
+      <p class="hint">SpendWise is a multi-page expense tracker built with HTML, CSS and vanilla JavaScript. No frameworks, no server — all data lives in your browser's <code>localStorage</code>.</p>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>
